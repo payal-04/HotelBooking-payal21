@@ -9,7 +9,7 @@ connectDB()
 
 const app = express()
 app.use(cors()) //Enable Cross Origin Resource Sharing//
-kkljl
+
 //Middleware//
 app.use(express.json())
 app.use(clerkMiddleware())
