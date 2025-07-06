@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { assets, cities } from '../assets/assets'
 import { useAppContext } from '../context/appContext'
 
 const HotelReg = () => {
 
   const {setShowHotelReg} = useAppContext();
+
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [contact, setContact] = useState("");
+  const [city, setCity] = useState("");
+
 
   return (
     <div className='fixed top-0 bottom-0 left-0 right-0 z-100 flex items-center
@@ -23,7 +29,8 @@ const HotelReg = () => {
        <label htmlFor="name" className='font-medium text-gray-500'>
        Hotel Name
        </label>
-       <input id='name' type="text" placeholder='write here' className='border
+       <input id='name' onChange={(e)=> setName(e.target.value)} value=
+       {name} type="text" placeholder='write here' className='border
        border-gray-200 rounded w-full px-3 py-2.5 mt-1 outline-indigo-500
        font-light' required/>
        </div>
@@ -32,7 +39,8 @@ const HotelReg = () => {
        <label htmlFor="contact" className='font-medium text-gray-500'>
        Phone
        </label>
-       <input id='contact' type="text" placeholder='write here' className='border
+       <input onChange={(e)=> setContact(e.target.value)} value={contact}
+       id='contact' type="text" placeholder='write here' className='border
        border-gray-200 rounded w-full px-3 py-2.5 mt-1 outline-indigo-500
        font-light' required/>
        </div>
@@ -41,7 +49,8 @@ const HotelReg = () => {
        <label htmlFor="address" className='font-medium text-gray-500'>
           Address
        </label>
-       <input id='address' type="text" placeholder='write here' className='border
+       <input onChange={(e)=> setAddress(e.target.value)} value={address}
+       id='address' type="text" placeholder='write here' className='border
        border-gray-200 rounded w-full px-3 py-2.5 mt-1 outline-indigo-500
        font-light' required/>
        </div>
@@ -50,7 +59,8 @@ const HotelReg = () => {
         <label htmlFor="city" className='font-medium text-gray-500'>
             City
         </label>
-        <select id="city" className='border border-gray-200
+        <select onChange={(e)=> setCity(e.target.value)} value={city}
+         id="city" className='border border-gray-200
         rounded w-full px-3 py-2.5 mt-1 outline-indigo-500 font-light'
         required>
             <option value="">Select City</option>
