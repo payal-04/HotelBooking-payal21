@@ -1,6 +1,7 @@
 import express from "express";
 import { checkAvailabilityAPI, createBooking, getHotelBookings, getUserBookings } from "../controllers/bookingController.js";
 import {protect} from '../middleware/authMiddleware.js';
+import { requireAuth } from "@clerk/express";
 const bookingRouter = express.Router();
 
 bookingRouter.post('/check-availability', checkAvailabilityAPI);
