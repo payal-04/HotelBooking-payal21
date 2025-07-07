@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import Title from '../../components/Title'
 import { assets } from '../../assets/assets'
+import { useAppContext } from '../../context/appContext'
+import toast from 'react-hot-toast'
 
 const AddRoom = () => {
+
+  const {axios, getToken} = useAppContext()
+
 
   const [images,setImages] = useState({
     1: null,
@@ -22,8 +27,16 @@ const AddRoom = () => {
     }
   })
 
+  const onSubmitHandler = async (e) =>{
+    e.preventDefault()
+    //Check if all inputs are filled//
+    if(!inputs.roomType || !inputs.pricePerNight || !inputs.amenities ||
+     !Object.values(images).some(image => image)) 
+     toast.error("Please Fill in All the Details")
+  }
+
   return (
-    <form>
+    <form onSubmit={onSubmitHandler}>
       <Title align='left' font='Outfit' title='Add Room'
       subTitle='Fill in the details carefully and accurate room details, pricing and amenities, to 
       enhance the user booking experience.'/>
