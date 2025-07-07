@@ -13,6 +13,7 @@ import AddRoom from './Pages/hotelOwner/AddRoom';
 import ListRoom from './Pages/hotelOwner/ListRoom';
 import {Toaster} from 'react-hot-toast'
 import { useAppContext } from './context/appContext';
+import { SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react';
 
 const App = () =>
 {
@@ -25,6 +26,7 @@ const App = () =>
       {!isOwnerPath && <Navbar/>}
       { showHotelReg && <HotelReg />}
       <div className='min-h-[70vh]'>
+         <SignedIn>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/rooms' element={<AllRooms/>}/>
@@ -36,6 +38,10 @@ const App = () =>
         <Route path='list-room' element={<ListRoom/>}/>
         </Route>
         </Routes>
+        </SignedIn>
+         <SignedOut>
+          <RedirectToSignIn />
+        </SignedOut>
       </div>
       <Footer/>
     </div>
