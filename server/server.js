@@ -2,8 +2,7 @@ import express, { request } from "express"
 import "dotenv/config"
 import cors from "cors"
 import connectDB from "./configs/db.js"
-import { clerkMiddleware } from '@clerk/express'
-import { requireAuth } from '@clerk/express';
+import { clerkMiddleware} from '@clerk/express'
 import clerkWebhooks from "./controllers/clerkWebHooks.js"
 import userRouter from "./routes/userRoutes.js"
 import hotelRouter from "./routes/hotelRoutes.js"

@@ -1,3 +1,4 @@
+import { requireAuth } from "@clerk/express";
 import User from "../models/User.js"
 
 //Middleware to check if the user is authenticated//
