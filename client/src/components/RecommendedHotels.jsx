@@ -23,7 +23,7 @@ const RecommendedHotels = () => {
     <div className='flex flex-col items-center px-6 md:px-16 lg:px-24 bg-slate-50
     py-20'>
 
-     <Title title='Featured Destination' subTitle='Discover our 
+     <Title title='Recommended Hotels' subTitle='Discover our 
      handpicked selection of exceptional properties around the world, offering
      unparalled luxury and unforgettable experiences.' />
 
