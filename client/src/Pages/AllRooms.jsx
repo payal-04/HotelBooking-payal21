@@ -204,19 +204,22 @@ const AllRooms = () => {
        <div className='px-5 pt-5'>
        <p className='font-medium text-gray-800 pb-2'>Popular Filters</p>
        {roomTypes.map((room,index)=>(
-        <CheckBox key={index} label={room}/>
+        <CheckBox key={index} label={room} selected = {selectedFilters.
+        roomType.includes(room)} onChange={(checked)=>handleFilterChange(checked, room, 'roomType')}/>
        ))}
        </div>
        <div className='px-5 pt-5'>
        <p className='font-medium text-gray-800 pb-2'>Price Range</p>
        {priceRange.map((range,index)=>(
-        <CheckBox key={index} label={`$ ${range}`}/>
+        <CheckBox key={index} label={`$${currency} ${range}`} selected = {selectedFilters.
+        priceRange.includes(range)} onChange={(checked)=>handleFilterChange(checked, range, 'priceRange')}/>
        ))}
        </div>
        <div className='px-5 pt-5 pb-7'>
        <p className='font-medium text-gray-800 pb-2'>Sort By</p>
        {sortOptions.map((option,index)=>(
-        <RadioButton key={index} label={option}/>
+        <RadioButton key={index} label={option} selected={selectedSort
+        === option} onChange={()=> handleSortChange(option)} />
        ))}
        </div>
 
