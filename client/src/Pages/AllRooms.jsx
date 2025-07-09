@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
-import {assets, facilityIcons, roomsDummyData} from '../assets/assets'
-import {useNavigate, useSearchParams} from 'react-router-dom'
+import {assets, facilityIcons} from '../assets/assets'
+import { useSearchParams} from 'react-router-dom'
 import StarRating from '../components/StarRating';
 import { useState } from 'react';
 import { useAppContext } from '../context/appContext';
@@ -98,15 +98,15 @@ const AllRooms = () => {
 
   //Function to Sort Rooms on Selected Room Options//
   const sortRooms = (a,b) =>{
-     if(selectSort === 'Price Low to High')
+     if(selectedSort === 'Price Low to High')
      {
        return a.pricePerNight - b.pricePerNight;
      }
-     if(selectSort === 'Price Low to High')
+     if(selectedSort === 'Price Low to High')
      {
        return b.pricePerNight - a.pricePerNight;
      }
-     if(selectSort === 'Newest First')
+     if(selectedSort === 'Newest First')
      {
        return new Date(b.createdAt) - new Date(a.createdAt)
      }
@@ -122,8 +122,7 @@ const AllRooms = () => {
   
   //Filter and Sort Rooms based on the selected filters and sort options//
   const filteredRooms = useMemo(()=>{
-    return rooms.filter(room => matchesRoomType(room) && matchesPriceRange
-  (room) && filterDestination(room)).sort(sortRooms);
+    return rooms.filter(room => matchesRoomType(room) && matchesPriceRange(room) && filterDestination(room)).sort(sortRooms);
   },[rooms, selectedFilters, selectedSort, searchParams])
 
   //Clear All Filters//
